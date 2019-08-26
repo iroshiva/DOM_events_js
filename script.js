@@ -50,31 +50,22 @@ menuBtn.addEventListener('click', function collapse() {
 
 console.log("Fonctionnalité 3: clique sur edit de la première card, son texte se mettra en rouge de manière irréversible! Sauf si tu rafraîchit la page :)")
 
-// // pointer le bouton edit de la première card
-// let firstCard = document.getElementsByClassName("col-md-4")[0];
-// let editBtn = firstCard.getElementsByClassName('btn-outline-secondary')[0];
-
-// console.log(editBtn);
-
-// // pointer le text de la première card
-// let textCard = firstCard.getElementsByClassName('card-text')[0];
-
-// console.log(textCard);
-
-// fonction qui dit:" Quand tu click sur editBtn, textCard se met en rouge"
-editBtn.addEventListener('click', function redText() {
-	// pointer le bouton edit de la première card
+// pointer le bouton edit de la première card
 let firstCard = document.getElementsByClassName("col-md-4")[0];
 let editBtn = firstCard.getElementsByClassName('btn-outline-secondary')[0];
 
-console.log(editBtn);
+// console.log(editBtn);
 
 // pointer le text de la première card
 let textCard = firstCard.getElementsByClassName('card-text')[0];
 
-console.log(textCard);
+// console.log(textCard);
 
+
+editBtn.addEventListener('click', function redText() {
+	// fonction qui dit:" Quand tu click sur editBtn, 
 	textCard.style.color = 'red';
+	//textCard se met en rouge"
 })
 
 
@@ -221,7 +212,4 @@ greyBtn2.addEventListener("click", function cardLeft(event){
 });
 
 
-// Fonctionnalité 9
-
-console.log("Fonctionnalité 8: clique sur le bouton gris <==!")
 
