@@ -51,13 +51,13 @@ menuBtn.addEventListener('click', function collapse() {
 console.log("Fonctionnalité 3: clique sur edit de la première card, son texte se mettra en rouge de manière irréversible! Sauf si tu rafraîchit la page :)")
 
 // pointer le bouton edit de la première card
-let firstCard = document.getElementsByClassName("col-md-4")[0];
-let editBtn = firstCard.getElementsByClassName('btn-outline-secondary')[0];
+let allCard = document.getElementsByClassName("col-md-4");
+let editBtn = allCard[0].getElementsByTagName("button")[1];
 
-// console.log(editBtn);
+console.log(editBtn);
 
 // pointer le text de la première card
-let textCard = firstCard.getElementsByClassName('card-text')[0];
+let textCard = allCard[0].getElementsByClassName('card-text')[0];
 
 // console.log(textCard);
 
@@ -211,5 +211,18 @@ greyBtn2.addEventListener("click", function cardLeft(event){
   // va prendre le 1er élément de l'élément parent, et le mettre en dernier
 });
 
+
+// Fonctionnalité 9
+
+console.log("Fonctionnalité 9: enfonce une touche et clique sur JS&Events!")
+
+// cibler le JS&Events
+let jsEvents = document.getElementsByClassName('navbar-brand')[0];
+
+// let body = document.querySelector('body');
+
+jsEvents.addEventListener("keypress", function test(event) {
+		alert("Je n'ai pas su faire..... ;)");
+	});
 
 
