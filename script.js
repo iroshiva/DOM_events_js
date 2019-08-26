@@ -30,3 +30,20 @@ let i = 0
 		console.log(`clic numéro ${i}`);
 });
 
+
+// Fonctionnalité 2
+
+
+let menuBtn = document.querySelector('.navbar-toggler');
+// va pointer le bouton sandwich
+let menu = document.querySelector('#navbarHeader');
+// pointe le menu déroulant
+
+menuBtn.addEventListener('click', function addCollapse() {
+	// quand l'uitlisateur clique sur le bouton de menu
+	menu.classList.toggle("collapse");
+	// affiche le menu ou l'enlève
+	// fonction toggle permet de faire les deux!!!!!!!
+})
+
+
