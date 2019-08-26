@@ -133,36 +133,42 @@ navbar.addEventListener('dblclick', function booDelete() {
 
 console.log("Passe et repasse avec ta souris sur les boutons views de chaque card!")
 
+// let viewBtns = document.getElementsByClassName('btn-success');
 
-// pointer le bouton view de chaque card
-let viewBtns = document.getElementsByClassName('btn-success');
+let allCards = document.getElementsByClassName("col-md-4")
+// // let viewBtns = allCardsPath[i].getElementsByTagName("button")[0];
 
-// pointer le text de la card
+// // pointer le text de la card
 let textCards = document.getElementsByClassName('card-text');
 
 let imgCards = document.getElementsByClassName('card-img-top');
 
 
-for(let i = 0; i < viewBtns.length; i ++){
+for(let i = 0; i < allCards.length; i ++){
 
+	// let viewBtns = allCardsPath[i].getElementsByTagName("button")[0];
 	let viewStatus = true;
 	// à mettre dans la boucle!!!!
+	let viewBtn = allCards[i].getElementsByTagName("button")[0];
+	let imgCards = allCards[i].getElementsByTagName("img")[0];
+	let textCards = allCards[i].getElementsByClassName('card-text')[0];
 
-	viewBtns[i].addEventListener('mouseover', function viewOver() {
+	viewBtn.addEventListener('mouseover', function viewOver() {
 		// pour chaque bouton view
 
 		if(viewStatus == true){
-			textCards[i].style.display = 'none';
-			// permet de ne pas effacer le texte
-			imgCards[i].style.width = '20%';
+
+			textCards.style.display = 'none';
+			// permet de ne pas effacgetElementsByClassName('card-text');er le texte
+			imgCards.style.width = '20%';
 			// réduction de la taille de l'image
 			viewStatus = false;
 			// passe à false
 		}
 		else if(viewStatus == false){
-			textCards[i].style.display = 'block';
+			textCards.style.display = 'block';
 			// permet d'afficher à nouveau le texte
-			imgCards[i].style.width = '100%';
+			imgCards.style.width = '100%';
 			// l'image retrouve sa taille initiale
 			viewStatus = true;
 			// passe à true == situation initiale
@@ -184,6 +190,19 @@ greyBtn.addEventListener('click', function replaceCard() {
 })
 
 
+// Fontionnalité 8
+
+// on cible le bouton
+let greyBtn2 = document.getElementsByClassName('btn-primary')[0];
 
 
+greyBtn2.addEventListener("click", function cardLeft(event){
+  event.preventDefault();
+  let elParent = document.getElementsByClassName("row")[1];
+  let familyLength = elParent.childNodes.length;
+
+  // console.log(elParent.childNodes);
+
+  elParent.insertBefore(elParent.firstElementChild, elParent.children[(familyLength)])
+});
 
