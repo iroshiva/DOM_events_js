@@ -98,5 +98,79 @@ editBtn2.addEventListener('click', function greenText() {
 })
 
 
-//
+// Fonctionnalité 5
+
+console.log("Double_clique sur la navbar!")
+
+// pointer la navbar == header
+let navbar = document.querySelector('header');
+
+// pointer le lien cdn bootstrap
+let style = document.styleSheets[0];
+
+// initialisation qui dit que si styleStatus = true, le CDN Bootstrap est là
+let styleStatus = true
+
+
+navbar.addEventListener('dblclick', function booDelete() {
+	// quand l'utilisateur va double cliquer
+	if(styleStatus == true){
+		// si le CDN est là
+		style.disabled = false;
+		// on enlève Bootstrap
+		styleStatus = false;
+		// on passe en false == pas de cdn Bootstrap
+	}
+	else{
+		style.disabled = true;
+		styleStatus = true;
+	}
+})
+
+
+// Fonctionnalité 6
+
+
+console.log("Passe et repasse avec ta souris sur les boutons views de chaque card!")
+
+// pointer le bouton view de chaque card
+let viewBtns = document.getElementsByClassName('btn-success');
+
+// pointer le text de la card
+let textCards = document.getElementsByClassName('card-text');
+
+let imgCards = document.getElementsByClassName('card-img-top');
+
+
+for(let i = 0; i < viewBtns.length; i ++){
+
+	let viewStatus = true;
+	// à mettre dans la boucle!!!!
+
+	viewBtns[i].addEventListener('mouseover', function viewOver() {
+		// pour chaque bouton view
+
+		if(viewStatus == true){
+			textCards[i].style.display = 'none';
+			// permet de ne pas effacer le texte
+			imgCards[i].style.width = '20%';
+			// réduction de la taille de l'image
+			viewStatus = false;
+			// passe à false
+		}
+		else if(viewStatus == false){
+			textCards[i].style.display = 'block';
+			// permet d'afficher à nouveau le texte
+			imgCards[i].style.width = '100%';
+			// l'image retrouve sa taille initiale
+			viewStatus = true;
+			// passe à true == situation initiale
+		}	
+	})
+}
+
+
+// FOnctionnalité 7
+
+console.log("Passe et repasse avec ta souris sur les boutons views de chaque card!")
 
