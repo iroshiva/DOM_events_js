@@ -1,19 +1,15 @@
 // Fonctionnalité 1 
 
-console.log("Fonctionnalité 1: lorsque l'utilisateur va cliquer sur le footer (portant le tag <footer>), tu vas afficher le mot 'clique' en console.")
+console.log("Fonctionnalité 1: clique sur le footer et regarde ce qu'il s'affiche en console!")
 
 var foot = document.getElementsByTagName('footer')[0];
 // on pointe le footer par TagName
 // ATTENTION: sort un array de tout les Tags footer
 // Comme il n'y en a qu'un: on sélection le footer à l'index 0
 
-// OU
-//var foot = document.querySelector('footer');
-// va directement chercher le tag footer, comme il n'y en a qu'un
-
 foot.addEventListener('click', function clickConsole(){
 // quand l'utilisateur clique sur le footer
-	console.log("Clique");
+	console.log("Clique ;)");
 	// affichage du message "clique" dans la console
 });
 
@@ -33,7 +29,7 @@ let i = 0
 
 // Fonctionnalité 2
 
-console.log("Fonctionnalité 2: acitvation de hamburger menu: clique sur le hamburger bouton et le menu apparaîtrera!")
+console.log("Fonctionnalité 2: acitvation de hamburger menu: clique sur le hamburger bouton et le menu apparaîtrera... un peu n'importe comment!")
 
 
 
@@ -52,20 +48,32 @@ menuBtn.addEventListener('click', function collapse() {
 
 // Fonctionnalité 3
 
-console.log("Fonctionnalité 3: clique sur edit de la première card, son texte se mettra en rouge")
+console.log("Fonctionnalité 3: clique sur edit de la première card, son texte se mettra en rouge de manière irréversible! Sauf si tu rafraîchit la page :)")
 
-// pointer le bouton edit de la première card
-let editBtn = document.getElementsByClassName('btn-outline-secondary')[0];
+// // pointer le bouton edit de la première card
+// let firstCard = document.getElementsByClassName("col-md-4")[0];
+// let editBtn = firstCard.getElementsByClassName('btn-outline-secondary')[0];
+
+// console.log(editBtn);
+
+// // pointer le text de la première card
+// let textCard = firstCard.getElementsByClassName('card-text')[0];
+
+// console.log(textCard);
+
+// fonction qui dit:" Quand tu click sur editBtn, textCard se met en rouge"
+editBtn.addEventListener('click', function redText() {
+	// pointer le bouton edit de la première card
+let firstCard = document.getElementsByClassName("col-md-4")[0];
+let editBtn = firstCard.getElementsByClassName('btn-outline-secondary')[0];
 
 console.log(editBtn);
 
 // pointer le text de la première card
-let textCard = document.getElementsByClassName('card-text')[0];
+let textCard = firstCard.getElementsByClassName('card-text')[0];
 
 console.log(textCard);
 
-// fonction qui dit:" Quand tu click sur editBtn, textCard se met en rouge"
-editBtn.addEventListener('click', function redText() {
 	textCard.style.color = 'red';
 })
 
@@ -77,11 +85,11 @@ console.log("Fonctionnalité 4: clique sur le bouton 'Edit' de la deuxième card
 // pointer le bouton edit de la deuxième card
 let editBtn2 = document.getElementsByClassName('btn-outline-secondary')[1];
 
-console.log(editBtn2);
+// console.log(editBtn2);
 
 // pointer le texte de la deuxième card
 let textCard2 = document.getElementsByClassName('card-text')[1];
-console.log(textCard2);
+// console.log(textCard2);
 
 editBtn2.addEventListener('click', function greenText() {
 	// si l'utilisateur clique
@@ -100,7 +108,7 @@ editBtn2.addEventListener('click', function greenText() {
 
 // Fonctionnalité 5
 
-console.log("Double_clique sur la navbar!")
+console.log("Fonctionnalité 5: double_clique sur la navbar!")
 
 // pointer la navbar == header
 let navbar = document.querySelector('header');
@@ -130,36 +138,29 @@ navbar.addEventListener('dblclick', function booDelete() {
 
 // Fonctionnalité 6
 
+console.log("Fonctionnalité 6: passe et repasse avec ta souris sur les boutons views de chaque card!")
 
-console.log("Passe et repasse avec ta souris sur les boutons views de chaque card!")
-
-// let viewBtns = document.getElementsByClassName('btn-success');
-
-let allCards = document.getElementsByClassName("col-md-4")
-// // let viewBtns = allCardsPath[i].getElementsByTagName("button")[0];
-
-// // pointer le text de la card
-let textCards = document.getElementsByClassName('card-text');
-
-let imgCards = document.getElementsByClassName('card-img-top');
-
+let allCards = document.getElementsByClassName("col-md-4");
+// sort toutes les cards
 
 for(let i = 0; i < allCards.length; i ++){
 
-	// let viewBtns = allCardsPath[i].getElementsByTagName("button")[0];
 	let viewStatus = true;
-	// à mettre dans la boucle!!!!
+	// à mettre dans la boucle!!!
+
 	let viewBtn = allCards[i].getElementsByTagName("button")[0];
+	// pointe le bouton view de la card
 	let imgCards = allCards[i].getElementsByTagName("img")[0];
+	// pointe l'image de la card
 	let textCards = allCards[i].getElementsByClassName('card-text')[0];
+	// pointe le texte de la card
 
 	viewBtn.addEventListener('mouseover', function viewOver() {
-		// pour chaque bouton view
+	// pour chaque bouton view
 
 		if(viewStatus == true){
-
 			textCards.style.display = 'none';
-			// permet de ne pas effacgetElementsByClassName('card-text');er le texte
+			// met le texte en display: none; au lieu de block
 			imgCards.style.width = '20%';
 			// réduction de la taille de l'image
 			viewStatus = false;
@@ -167,7 +168,7 @@ for(let i = 0; i < allCards.length; i ++){
 		}
 		else if(viewStatus == false){
 			textCards.style.display = 'block';
-			// permet d'afficher à nouveau le texte
+			// remet le texte en display: block;
 			imgCards.style.width = '100%';
 			// l'image retrouve sa taille initiale
 			viewStatus = true;
@@ -179,30 +180,48 @@ for(let i = 0; i < allCards.length; i ++){
 
 // Fonctionnalité 7
 
-console.log("si un utilisateur clique sur le bouton gris ==>, la dernière card (en bas à droite) va passer en premier (en haut à gauche). On va pouvoir faire tourner les cards !")
+console.log("Fonctionnalité 7: clique sur le bouton gris ==>!")
 
-// pointer le bouton gris
+
 let greyBtn = document.getElementsByClassName('btn-secondary')[0];
+// pointer le bouton ==>
 
 greyBtn.addEventListener('click', function replaceCard() {
+	// en cliquant sur le bouton ==>
 	let elParent = document.getElementsByClassName('row')[1];
-	elParent.insertBefore(elParent.lastElementChild, elParent.childNodes[0]);
+	// pointe l'élément parents des cards == row
+	//console.log(elParent.children.length);
+
+	elParent.insertBefore(elParent.lastElementChild, elParent.children[0]);
+	// va insérer le dernier élément de l'élémnet parent == dernière card, en premier
 })
 
 
 // Fontionnalité 8
 
-// on cible le bouton
-let greyBtn2 = document.getElementsByClassName('btn-primary')[0];
+console.log("Fonctionnalité 8: clique sur le bouton gris <==!")
 
+let greyBtn2 = document.getElementsByClassName('btn-primary')[0];
+// on cible le bouton <==
 
 greyBtn2.addEventListener("click", function cardLeft(event){
+// en cliquant sur le bouton <==
   event.preventDefault();
+  // on inactive le lien vers THP
   let elParent = document.getElementsByClassName("row")[1];
-  let familyLength = elParent.childNodes.length;
+  // pointe l'élément parents des cards == row
 
-  // console.log(elParent.childNodes);
+  let elParentLength = elParent.children.length;
+  // détermination de la longueur de l'élément parent row pour déterminer la dernière position de l'élément parents
+  //console.log(familyLength); == 6
+  
 
-  elParent.insertBefore(elParent.firstElementChild, elParent.children[(familyLength)])
+  elParent.insertBefore(elParent.firstElementChild, elParent.children[(elParentLength)])
+  // va prendre le 1er élément de l'élément parent, et le mettre en dernier
 });
+
+
+// Fonctionnalité 9
+
+console.log("Fonctionnalité 8: clique sur le bouton gris <==!")
 
