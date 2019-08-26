@@ -133,6 +133,7 @@ navbar.addEventListener('dblclick', function booDelete() {
 
 console.log("Passe et repasse avec ta souris sur les boutons views de chaque card!")
 
+
 // pointer le bouton view de chaque card
 let viewBtns = document.getElementsByClassName('btn-success');
 
@@ -170,7 +171,19 @@ for(let i = 0; i < viewBtns.length; i ++){
 }
 
 
-// FOnctionnalité 7
+// Fonctionnalité 7
 
-console.log("Passe et repasse avec ta souris sur les boutons views de chaque card!")
+console.log("si un utilisateur clique sur le bouton gris ==>, la dernière card (en bas à droite) va passer en premier (en haut à gauche). On va pouvoir faire tourner les cards !")
+
+// pointer le bouton gris
+let greyBtn = document.getElementsByClassName('btn-secondary')[0];
+
+greyBtn.addEventListener('click', function replaceCard() {
+	let elParent = document.getElementsByClassName('row')[1];
+	elParent.insertBefore(elParent.lastElementChild, elParent.childNodes[0]);
+})
+
+
+
+
 
